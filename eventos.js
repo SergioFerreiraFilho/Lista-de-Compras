@@ -1,3 +1,35 @@
+let API_URL = 'http://localhost:8000'
+
+function buscarParaEditar(id) {
+    fetch(API_URL + '/compras/' +id)
+    .then(res => res.json())
+    .then(dados => {
+        input_editar_item.value = dados.item;
+        input_editar_quantidade.value = dados.quantidade;
+        input_editar_id.value = dados.id
+    });
+}
+
+async function editarItens() {
+    event.preventDefault();
+
+    let dados = {
+        item: input_editar_item.value,
+        quantidade: input_editar_quantidade.value,
+        id: input_editar_id,
+    }
+  await  fetch(API_URL + '/compras/' + input_editar_id.value,{
+        method:'PATCH',
+        body: JSON.stringify(dados),
+        headers: {
+            'content-Type': 'application/json'
+        }
+    })
+    .then(res => res.json())
+    .then(() => atualizarLista())
+}
+
+
 function inserir() {
     event.preventDefault();
 
@@ -5,7 +37,7 @@ function inserir() {
         item: input_item.value,
         quantidade: parseInt(input_quantidade.value),
     }
-    fetch('http://localhost:8000/compras', {
+    fetch(API_URL + '/compras', {
         method:'POST',
         body: JSON.stringify(dados),
         headers: {
@@ -25,7 +57,7 @@ async function excluir(id) {
         return;
     }
 
-   await fetch('http://localhost:8000/compras/' +id, {
+   await fetch(API_URL + '/compras/' +id, {
         method: 'DELETE'
     })
     atualizarLista();
@@ -33,7 +65,7 @@ async function excluir(id) {
 
 function atualizarLista() {
     tabela_compras.innerHTML= ''
-    fetch('http://localhost:8000/compras', {method: 'GET'})
+    fetch(API_URL + '/compras', {method: 'GET'})
     .then(function(resposta) {
         return resposta.json();
     })
@@ -45,7 +77,7 @@ function atualizarLista() {
                 <td>${cadaItem.item}</td>
                 <td>${cadaItem.quantidade}</td>
                 <td>
-                    <button class ="btn btn-warning">Editar</button>
+                    <button onclick="buscarParaEditar(${cadaItem.id})" data-bs-toggle="offcanvas" data-bs-target="#offcanvasEditar" class ="btn btn-warning">Editar</button>
                     <button onclick="excluir(${cadaItem.id})" class="btn btn-danger">Excluir</button>
                 </td>
             </tr>

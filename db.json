@@ -2,7 +2,7 @@
   "compras": [
     {
       "item": "World of Warcraft Expansão DragonFlight",
-      "quantidade": 1,
+      "quantidade": "1",
       "id": 3
     },
     {
@@ -39,6 +39,16 @@
       "item": "Fatal Frame 4 The Maid Of Black Water",
       "quantidade": 1,
       "id": 13
+    },
+    {
+      "item": "Dodgeball Academia",
+      "quantidade": 1,
+      "id": 14
+    },
+    {
+      "item": "Pacote de Skin do Valorant",
+      "quantidade": 1,
+      "id": 15
     }
   ]
 }

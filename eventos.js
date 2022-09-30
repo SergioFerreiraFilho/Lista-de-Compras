@@ -27,6 +27,11 @@ async function editarItens() {
     })
     .then(res => res.json())
     .then(() => atualizarLista())
+
+ let x = document.querySelector('[data-bs-dismiss="offcanvas"]')
+
+    x.dispatchEvent(new Event('click'));
+
 }
 
 
@@ -46,6 +51,10 @@ function inserir() {
     })
     .then(resposta => resposta.json())
     .then(resposta => atualizarLista())
+
+    let x = document.querySelector('[data-bs-dismiss="modal"]')
+
+    x.dispatchEvent(new Event('click'));
 
     form_add.reset();
 }

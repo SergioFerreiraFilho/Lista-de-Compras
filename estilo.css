@@ -1,0 +1,18 @@
+body {
+    background-image:url(img/R.jfif);
+    background-size: cover;
+}
+
+tbody {
+    color: white;
+}
+
+.imagemfundo {
+    background-image: url('img/killjoy.jfif');
+    background-size: cover;
+}
+
+.imagemmodal {
+    background-image: url('img/Reyna.jfif');
+    background-size: cover;
+}

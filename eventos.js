@@ -34,6 +34,22 @@ async function editarItens() {
 
 }
 
+function marcarTodos () {
+    let todos = document.querySelectorAll('[data-check="acao"]')
+
+
+    if (marcadortodos.checked === true) {
+        todos.forEach((cadaCheck) => {
+            cadaCheck.checked = true
+        })
+    }else { 
+        todos.forEach((cadaCheck) => {
+            cadaCheck.checked = false
+        })
+
+    }
+}
+
 
 function inserir() {
     event.preventDefault();
@@ -82,6 +98,7 @@ function atualizarLista() {
         lista.forEach(function(cadaItem){
             tabela_compras.innerHTML += ` 
             <tr>
+                <td> <input data-check="acao" type="checkbox"></td>
                 <td>${cadaItem.id}</td>
                 <td>${cadaItem.item}</td>
                 <td>${cadaItem.quantidade}</td>

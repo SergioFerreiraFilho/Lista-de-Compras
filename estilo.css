@@ -26,3 +26,7 @@ tbody {
 * {
     font-family: valorant;
 }
+
+table tr td, table tr th{
+    background-color: rgba(0,0,0, 0.5) !important;
+}

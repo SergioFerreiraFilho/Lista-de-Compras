@@ -16,3 +16,13 @@ tbody {
     background-image: url('img/Reyna.jfif');
     background-size: cover;
 }
+
+@font-face {
+    font-family: valorant;
+    src: url(valorant.ttf);
+}
+
+
+* {
+    font-family: valorant;
+}
